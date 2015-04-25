@@ -12,7 +12,7 @@ function CarregaLivros() {
         data: "acao=livros&codautor=" + $("#cmbAutor").val(),
         datatype: "json",
         success: function (data) {
-            $('#cmbLivros').append(data.map(function (value, index) {
+            $('#cmbLivros').html(data.map(function (value, index) {
                 return $('<option>').val(value.Codigo).text(value.Descricao);
             }));
         },

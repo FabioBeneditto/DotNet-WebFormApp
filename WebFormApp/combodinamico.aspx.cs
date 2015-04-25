@@ -76,12 +76,6 @@ namespace WebFormApp
 
                 cmbLivros.DataSource = livros;
                 cmbLivros.DataBind();
-
-
-                System.Web.Script.Serialization.JavaScriptSerializer serializer = new System.Web.Script.Serialization.JavaScriptSerializer();
-                var lstLivros = livros.AsEnumerable().Select(l => new { Codigo = l.Field<int>("CodLivro"), Descricao = l.Field<string>("Titulo") });
-                string json = serializer.Serialize(lstLivros);
-
             }
             catch (Exception ex)
             {

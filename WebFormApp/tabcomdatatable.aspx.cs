@@ -64,6 +64,7 @@ namespace WebFormApp
             GridView tabLivros = new GridView();
             tabLivros.ID = "tabLivros2";
             tabLivros.DataSource = livros;
+            tabLivros.CssClass = "table";
 
             tabLivros.AutoGenerateColumns = false;
 

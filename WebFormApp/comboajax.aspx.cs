@@ -48,7 +48,6 @@ namespace WebFormApp
                 cmbAutor.DataValueField = "CodAutor";
                 cmbAutor.DataTextField = "Nome";
 
-
                 cmbAutor.DataSource = autores;
                 cmbAutor.DataBind();
             }
@@ -76,7 +75,11 @@ namespace WebFormApp
                 DataTable livros = new DataTable();
                 ad.Fill(livros);
 
-                var lstLivros = livros.AsEnumerable().Select(l => new { Codigo = l.Field<int>("CodLivro"), Descricao = l.Field<string>("Titulo") });
+                var lstLivros = livros.AsEnumerable().Select(
+                    l => new {
+                        Codigo = l.Field<int>("CodLivro"), 
+                        Descricao = l.Field<string>("Titulo")   
+                    });
                 
                 System.Web.Script.Serialization.JavaScriptSerializer serializer = new System.Web.Script.Serialization.JavaScriptSerializer();
                 json = serializer.Serialize(lstLivros);
